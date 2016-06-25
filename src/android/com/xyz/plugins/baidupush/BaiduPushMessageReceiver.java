@@ -342,7 +342,7 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
         }
 		String messageString = "message=\"" + description
                 + "\" customContentString=" + customContentString;
-		updateContent(context, messageString);
+		//updateContent(context, messageString);
     }
 
 
