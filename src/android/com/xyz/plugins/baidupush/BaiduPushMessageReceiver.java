@@ -15,6 +15,9 @@ import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushMessageReceiver;
 
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+
 /**
  * Author: xyz
  * Create-Date: 2015-06-24
@@ -72,9 +75,8 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
             } catch (Exception e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
             }
-			String messageString = "message=\"" + message
-                + "\" customContentString=" + customContentString;
-		updateContent(context, messageString);
+			
+		updateContent(context, "");
         }
     }
 
@@ -148,9 +150,8 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
             } catch (Exception e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
             }
-			String messageString = "message=\"" + message
-                + "\" customContentString=" + customContentString;
-		updateContent(context, messageString);
+			
+		updateContent(context, "");
         }
     }
 
@@ -197,9 +198,8 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
             } catch (JSONException e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
             }
-			String messageString = "message=\"" + message
-                + "\" customContentString=" + customContentString;
-		updateContent(context, messageString);
+		
+		updateContent(context, "");
         }
 
     }
@@ -238,9 +238,8 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
             } catch (JSONException e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
             }
-			String messageString = "message=\"" + message
-                + "\" customContentString=" + customContentString;
-		updateContent(context, messageString);
+			
+		updateContent(context, "");
         }
 
     }
@@ -307,7 +306,7 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
         }
-		String messageString = "message=\"" + message
+		String messageString = "message=\"" + description
                 + "\" customContentString=" + customContentString;
 		updateContent(context, messageString);
     }
@@ -341,7 +340,7 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
         }
-		String messageString = "message=\"" + message
+		String messageString = "message=\"" + description
                 + "\" customContentString=" + customContentString;
 		updateContent(context, messageString);
     }
@@ -386,9 +385,7 @@ public class BaiduPushMessageReceiver extends PushMessageReceiver {
             logText += "\n";
         }
 
-        SimpleDateFormat sDateFormat = new SimpleDateFormat("HH-mm-ss");
-        logText += sDateFormat.format(new Date()) + ": ";
-        logText += content;
+    
 
        // Utils.logStringCache = logText;
 
